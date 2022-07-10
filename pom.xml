@@ -16,6 +16,7 @@
         <selenium-java.version>4.3.0</selenium-java.version>
         <gherkin.version>23.0.1</gherkin.version>
         <cucumber.version>7.3.3</cucumber.version>
+        <slf4j.version>1.7.36</slf4j.version>
 
     </properties>
 
@@ -51,6 +52,19 @@
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- SLF4J API Module -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 
