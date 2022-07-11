@@ -1,7 +1,9 @@
 package StepDefinitions;
 import Pages.GoogleMainPage;
 import Pages.GoogleResultsPage;
+import UtilityClasses.BrowserUtils;
 import UtilityClasses.WebDriverManager;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Then;
@@ -15,6 +17,7 @@ import org.slf4j.LoggerFactory;
 public class GoogleSteps {
     WebDriver driver;
     WebDriverManager manager = new WebDriverManager();
+    BrowserUtils utils = new BrowserUtils();
     GoogleMainPage mainPage;
     GoogleResultsPage resultsPage;
     Logger logger = LoggerFactory.getLogger(GoogleSteps.class);
@@ -50,6 +53,12 @@ public class GoogleSteps {
         Assert.assertTrue(resultsPage.isFirstResultDisplayed());
     }
 
+    @AfterStep
+    public void getPageSource(Scenario scenario){
+        if (scenario.isFailed()){
+            utils.takeScreenshot(driver);
+        }
+    }
     @After
     public void logTestResult(Scenario scenario){
         logger.info("TEST RESULT: " + scenario.getStatus().toString());
