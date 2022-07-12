@@ -1,5 +1,7 @@
 {
-  "searchValue": "Hola",
-  "secondSearchValue": "Juegos de mesa",
-  "thirdSearchValue": "Películas"
+  "testData": {
+    "searchValue": "Hola",
+    "secondSearchValue": "Juegos de mesa",
+    "thirdSearchValue": "Películas"
+  }
 }

@@ -1,4 +1,5 @@
 package Pages;
+import Hooks.GlobalHooks;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,9 +14,12 @@ public class GoogleMainPage {
     @FindBy(name = "q")
     WebElement searchInput;
 
-    //Constructor method, initializes all the web elements declared above
-    public GoogleMainPage (WebDriver driver) {
-        this.driver = driver;
+    /**
+     * Constructor method, initializes all the web elements declared above
+     */
+
+    public GoogleMainPage () {
+        this.driver = GlobalHooks.driver;
         PageFactory.initElements(driver, this);
     }
 

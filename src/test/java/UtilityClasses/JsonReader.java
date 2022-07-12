@@ -10,10 +10,11 @@ import org.json.simple.parser.ParseException;
 
 public class JsonReader {
 
-    public String getValueFromJson (String valueName, String jsonFilePath) {
+    public String getValueFromJson (String dataType, String valueName, String jsonFilePath) {
         String value;
         JSONParser parser = new JSONParser();
         JSONObject json = new JSONObject();
+        JSONObject dataSet = new JSONObject();
 
         try (FileReader reader = new FileReader(jsonFilePath)){
 
@@ -26,7 +27,9 @@ public class JsonReader {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        value = (String) json.get(valueName);
+        dataSet = (JSONObject) json.get(dataType);
+        value = (String) dataSet.get(valueName);
         return value;
     }
 }
+

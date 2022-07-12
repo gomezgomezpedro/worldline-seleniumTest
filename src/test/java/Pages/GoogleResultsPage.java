@@ -1,5 +1,6 @@
 package Pages;
 
+import Hooks.GlobalHooks;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,9 +13,11 @@ public class GoogleResultsPage {
     @FindBy(className = "yuRUbf")
     WebElement firstResult;
 
-    //Constructor method, initializes all the web elements declared above
-    public GoogleResultsPage (WebDriver driver) {
-        this.driver= driver;
+    /**
+     * Constructor method, initializes all the web elements declared above
+     */
+    public GoogleResultsPage () {
+        this.driver= GlobalHooks.driver;
         PageFactory.initElements(driver, this);
     }
 

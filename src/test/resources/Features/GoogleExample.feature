@@ -1,3 +1,4 @@
+@SearchFirstResult
 Feature: Google search
 
   # Google search test
