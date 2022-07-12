@@ -2,6 +2,7 @@ package StepDefinitions;
 import Pages.GoogleMainPage;
 import Pages.GoogleResultsPage;
 import UtilityClasses.BrowserUtils;
+import UtilityClasses.JsonReader;
 import UtilityClasses.WebDriverManager;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
@@ -21,6 +22,7 @@ public class GoogleSteps {
     GoogleMainPage mainPage;
     GoogleResultsPage resultsPage;
     Logger logger = LoggerFactory.getLogger(GoogleSteps.class);
+    JsonReader jsonReader = new JsonReader();
 
     //This method initializes the driver and all the website pages required in the test case
     @Before
@@ -31,11 +33,13 @@ public class GoogleSteps {
         resultsPage = new GoogleResultsPage(driver);
     }
 
-    @When("the user inputs {string} as a search value")
-    public void the_user_inputs_as_a_search_value(String searchValue) throws InterruptedException {
-        logger.info("When the user inputs {} as a search value", searchValue);
+    @When("the user inputs Hola as a search value")
+    public void the_user_inputs_hola_as_a_search_value() throws InterruptedException {
+        logger.info("When the user inputs Hola as a search value");
         mainPage.acceptTerms();
         Thread.sleep(2000);
+        String searchValue = jsonReader.getValueFromJson("searchValue",
+                "src/test/resources/testData.json");
         mainPage.inputSearchValue(searchValue);
         Thread.sleep(2000);
     }
