@@ -1,31 +1,29 @@
 package Pages;
 
 import Hooks.GlobalHooks;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class GoogleResultsPage {
+public class AmazonPLPage {
     WebDriver driver;
-
-    @FindBy(className = "yuRUbf")
+    @FindBy(xpath = "(//span[@class='a-size-base-plus a-color-base a-text-normal'])[1]")
     WebElement firstResult;
 
     /**
      * Constructor method, initializes all the web elements declared above
      */
-    public GoogleResultsPage () {
-        this.driver= GlobalHooks.driver;
+    public AmazonPLPage() {
+        this.driver = GlobalHooks.driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void clickFirstResult (){
-        firstResult.click();
+    public boolean isFirstResultDisplayed() {
+        return firstResult.isDisplayed();
     }
 
-    public boolean isFirstResultDisplayed(){
-        return firstResult.isDisplayed();
+    public void clickFirstResult() {
+        firstResult.click();
     }
 }

@@ -15,18 +15,18 @@ public class GlobalHooks {
     WebDriverManager manager = new WebDriverManager();
 
     @Before
-    public void setup(Scenario scenario){
+    public void setup(Scenario scenario) {
         logger.info("Scenario: " + scenario.getName());
         driver = manager.startDriver();
     }
 
     @After
-    public void logTestResult(Scenario scenario){
+    public void logTestResult(Scenario scenario) {
         logger.info("TEST RESULT: " + scenario.getStatus().toString());
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         manager.quitDriver(driver);
     }
 }

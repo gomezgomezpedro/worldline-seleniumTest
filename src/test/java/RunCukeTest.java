@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/Features/GoogleExample.feature",
+        features = "src/test/resources/Features/Amazon.feature",
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/test-report.html",
